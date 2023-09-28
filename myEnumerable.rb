@@ -6,4 +6,12 @@ module MyEnumerable
         end
         return true
     end
+
+    def any?
+        each do |item|
+          return false unless block_given?
+          return true if yield(item)
+        end
+        return false
+    end
 end
